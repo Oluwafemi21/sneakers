@@ -112,18 +112,18 @@
         <h2 class="border-b p-3 text-sm text-black font-bold">Cart</h2>
 
         <!-- When Cart is Empty -->
-        <div class="hidden h-40 flex justify-center items-center">
+        <div class="h-40 flex justify-center items-center" id="empty-cart">
           <p class="font-bold text-grayish_blue text-sm">Your cart is empty.</p>
         </div>
 
         <!-- When Cart has an item/items in it -->
-        <section class="p-5 flex flex-col gap-12">
+        <section class="hidden p-5 flex flex-col gap-12" id="cart-info">
           <div class="flex items-center w-full gap-4">
             <img class="h-10 w-10 rounded-md" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
             <div class="flex items-center justify-between w-full">
-              <div>
-                <p>Autum Limited Edition</p>
-                <p>$125.00 x <span id="number-of-items">3</span><span id="amount" class="font-bold pl-2">$375.00</span></p>
+              <div class="text-grayish_blue text-xs">
+                <p>Autum Limited Edition...</p>
+                <p>$<span id="amount">125.00</span> x <span id="number-of-items"></span><span id="checkout" class="font-bold pl-2 text-black"></span></p>
               </div>
 
               <img src="images/icon-delete.svg" alt="icon-delete" id="icon-delete">

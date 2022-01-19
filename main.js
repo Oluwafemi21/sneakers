@@ -8,6 +8,12 @@ const iconPlus = document.getElementById('icon-plus');
 const iconMinus = document.getElementById('icon-minus');
 const addCart = document.getElementById('add-to-cart');
 const cartNumber = document.getElementById('cart-number');
+const numOfItems = document.getElementById('number-of-items');
+const checkout = document.getElementById('checkout');
+const amount = document.getElementById('amount');
+const emptyCart = document.getElementById('empty-cart');
+const cartInfo = document.getElementById('cart-info');
+
 
 
 cart.addEventListener('click',()=>{
@@ -37,11 +43,23 @@ iconMinus.addEventListener('click',()=>{
 });
 
 addCart.addEventListener('click', ()=>{
-    console.log(counter.textContent)
+    // Show number of items ordered in cart if order is greater than one else hide the number of items
     if(counter.textContent > 0 ){
         cartNumber.classList.remove('hidden');
         cartNumber.textContent = counter.textContent;
+        emptyCart.classList.add('hidden');
+        cartInfo.classList.remove('hidden');
     } else{
         cartNumber.classList.add('hidden');
+        cartInfo.classList.add('hidden')
+        emptyCart.classList.remove('hidden');
     }
+
+    // Update the number of items in cart modal
+    numOfItems.textContent = counter.textContent;
+    
+    // Calculate the total amount to be paid
+    let totalAmount = Number(amount.textContent) * numOfItems.textContent;
+    checkout.textContent = `$${totalAmount.toFixed(2)}`
 });
+

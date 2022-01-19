@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | E-commerce product page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+               orange:"hsl(26, 100%, 55%)",
+               paleorange: "hsl(25, 100%, 94%)",
+               darkblue:'hsl(220, 13%, 13%)',
+               dark_grayish_blue:'hsl(219, 9%, 45%)',
+               grayish_blue:'hsl(220, 14%, 75%)',
+               lightgrayblue:'hsl(223, 64%, 98%)',
+              },
+              fontFamily:{
+                body:['Kumbh Sans']
+              },
+              keyframes: {
+                slidein: {
+                     '0%': { transform: 'translateX(-100%)' },
+                     '100%': { transform: 'translateX(0%)' },
+                }
+              },
+              animation:{
+                slidein: 'slidein .3s ease-in-out',
+              }
+            }
+          }
+        }
+    </script>
+
+      <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+        
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        /* CUSTSOM CLASSES */
+        .nav-link{
+          @apply md:text-grayish_blue md:hover:text-black relative md:after:absolute md:after:left-0 md:after:w-0 md:after:h-[3px] md:after:-bottom-7 md:after:bg-orange md:hover:after:w-full md:hover:after:transition-[width] hover:after:duration-300 hover:after:ease-in-out pb-4 md:pb-0 cursor-pointer text-black
+          font-bold md:font-normal;
+        }
+
+        .card{
+          @apply min-w-[96%] container w-64 h-auto md:h-52 absolute z-20 top-20 right-0 left-0 rounded-md shadow-lg bg-white overflow-hidden mx-auto md:min-w-0 md:top-14 md:left-auto md:-right-12 md:mx-0;
+        }
+
+        .sidenav{
+          @apply md:relative md:left-0 md:min-h-0 md:animate-none bg-white md:pl-0 md:pt-0 absolute -left-5 top-0 w-3/4 z-30  min-h-screen pl-14 pt-8 animate-slidein md:block;
+        }
+
+        .hoverbg{
+          @apply bg-black/50;
+        }
+
+        .bigBtn {
+          @apply flex items-center justify-center bg-orange py-2 px-6 gap-4 text-white cursor-pointer rounded-md text-sm hover:bg-orange/50 transition w-full
+        }
+
+      </style>
+
+
+
+</head>
+<body class="font-body min-h-screen md:w-4/5 xl:w-[67%] w-full md:container md:mx-auto md:px-5 xl:overflow-hidden">
+
+    <header class="flex items-center justify-between py-5 md:border-b relative w-full z-20 px-5 md:px-0">
+      <div class="flex items-center justify-center gap-3">
+        
+        <img class="md:hidden block cursor-pointer" src="images/icon-menu.svg" alt="Hamburger Menu Icon" id="menu">
+
+        <img src="images/logo.svg" alt="">
+
+        <div class="sidenav hidden" id="nav-menu">
+
+          <img src="images/icon-close.svg" alt="close" id="close" class="cursor-pointer md:hidden">
+
+          <ul class="md:ml-10 md:mt-0 mt-10 items-center gap-3 md:flex text-sm">
+            <li class="nav-link"><a href="/">Collections</a></li>
+            <li class="nav-link"><a href="/">Men</a></li>
+            <li class="nav-link"><a href="/">Women</a></li>
+            <li class="nav-link"><a href="/">About</a></li>
+            <li class="nav-link"><a href="/">Contact</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="flex items-center gap-8">
+        <div class="relative">
+          <img class="cursor-pointer" src="images/icon-cart.svg" alt="icon-cart" id='cart'>
+
+          <span class="hidden absolute -top-1 text-center -right-2 rounded-full h-3.5 w-5 bg-orange text-white text-xs font-bold" id="cart-number">0</span>
+        </div>
+
+        <img class="h-8 w-8 cursor-pointer border-2 hover:border-orange rounded-full" src="images/image-avatar.png" alt="image-avatar">
+
+      </div>
+
+      <!-- Modal Card -->
+      <div class="card hidden" id="card">
+        <h2 class="border-b p-3 text-sm text-black font-bold">Cart</h2>
+
+        <!-- When Cart is Empty -->
+        <div class="hidden h-40 flex justify-center items-center">
+          <p class="font-bold text-grayish_blue text-sm">Your cart is empty.</p>
+        </div>
+
+        <!-- When Cart has an item/items in it -->
+        <section class="p-5 flex flex-col gap-12">
+          <div class="flex items-center w-full gap-4">
+            <img class="h-10 w-10 rounded-md" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
+            <div class="flex items-center justify-between w-full">
+              <div>
+                <p>Autum Limited Edition</p>
+                <p>$125.00 x <span id="number-of-items">3</span><span id="amount" class="font-bold pl-2">$375.00</span></p>
+              </div>
+
+              <img src="images/icon-delete.svg" alt="icon-delete" id="icon-delete">
+            </div>
+          </div>
+          <button class="bigBtn">Checkout</button>
+        </section>
+
+      </div>
+
+    </header>
+
+
+    <main class="flex flex-col md:flex-row items-center md:gap-28 p-0 md:p-16">
+
+      <!-- Image Section -->
+      <section class="relative h-[30%]" id="image-section">
+
+        <!-- Slideshow buttons -->
+        <div class="absolute top-[50%] w-full flex items-center justify-between px-8 md:hidden z-10">
+          <button class="bg-white h-8 w-8 p-1 rounded-full flex items-center" id="previous">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+          </button>
+          <button class="bg-white h-8 w-8 p-1 rounded-full flex items-center" id="next">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Image area -->
+        <div class="h-3/4 md:mb-8 mb-2">
+          <img class="md:rounded-xl h-full w-full" src="images/image-product-1.jpg" alt="image-1">
+        </div>
+
+        <!-- Image Thumbnails -->
+        <div class="md:flex gap-8 items-center hidden">
+          <div class="h-18 border-2 border-orange rounded-md">
+            <img class="h-full opacity-50 cursor-pointer" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
+          </div>
+          <div class="">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-2-thumbnail.jpg" alt="image-product-2-thumbnail">
+          </div>
+          <div class="">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-3-thumbnail.jpg" alt="image-product-3-thumbnail">
+          </div>
+          <div class="">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-4-thumbnail.jpg" alt="image-product-4-thumbnail">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Hero Text Section -->
+      <section class="pt-2 px-8 md:px-0 h-[70%] w-full" id="hero-text">
+        <h6 class="text-sm tracking-widest uppercase text-orange font-bold">sneaker company</h6>
+        <h1 class="md:text-4xl text-3xl font-bold capitalize my-3">Fall limited edition sneakers</h1>
+
+        <p class="my-2 text-xs text-dark_grayish_blue">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+        <div class="flex md:flex-col md:items-start md:justify-start items-center justify-between gap-3 pb-1">
+          <div class="flex items-center gap-3 my-2">
+            <span class="text-2xl font-bold"> $125.00</span>
+            <span class="rounded-sm text-sm bg-paleorange text-orange px-[5px]">50%</span>
+          </div>
+          <p class="text-sm text-grayish_blue line-through font-bold">$250.00</p>
+        </div>
+        
+
+        <div class="md:flex items-center gap-4 py-4 px-1">
+          <div class="flex items-center justify-between gap-4 py-1 bg-lightgrayblue rounded-md w-full md:w-44 mb-4 md:mb-0">
+            <button class="p-2 rounded-md cursor-pointer w-full flex justify-center" id="icon-minus">
+              <img  src="images/icon-minus.svg" alt="icon-minus" >
+            </button>
+            <span class="font-bold w-full text-center" id="counter">0</span>
+            <button class="p-2 rounded-md cursor-pointer w-full flex justify-center" id="icon-plus">
+              <img  src="images/icon-plus.svg" alt="icon-plus" >
+            </button>
+          </div>
+          
+
+          <button class="shadow-lg shadow-orange/50 bigBtn" id="add-to-cart">
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="white" fill-rule="nonzero"/></svg>
+            Add to cart
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

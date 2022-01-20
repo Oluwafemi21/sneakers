@@ -13,7 +13,7 @@ const checkout = document.getElementById('checkout');
 const amount = document.getElementById('amount');
 const emptyCart = document.getElementById('empty-cart');
 const cartInfo = document.getElementById('cart-info');
-
+const removeItem = document.getElementById('icon-delete');
 
 
 cart.addEventListener('click',()=>{
@@ -63,3 +63,9 @@ addCart.addEventListener('click', ()=>{
     checkout.textContent = `$${totalAmount.toFixed(2)}`
 });
 
+removeItem.addEventListener('click',()=>{
+    counter.textContent = 0;
+    cartNumber.classList.add('hidden');
+    cartInfo.classList.add('hidden');
+    emptyCart.classList.remove('hidden');
+})

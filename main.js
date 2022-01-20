@@ -14,6 +14,7 @@ const amount = document.getElementById('amount');
 const emptyCart = document.getElementById('empty-cart');
 const cartInfo = document.getElementById('cart-info');
 const removeItem = document.getElementById('icon-delete');
+const backdrop = document.getElementById('backdrop');
 
 
 cart.addEventListener('click',()=>{
@@ -23,12 +24,13 @@ cart.addEventListener('click',()=>{
 menu.addEventListener('click',()=>{
     navMenu.classList.remove('hidden')
     closeBtn.classList.remove('hidden');
-    
+    backdrop.classList.remove('hidden');
 });
 
 closeBtn.addEventListener('click',()=>{
     navMenu.classList.add('hidden');
     closeBtn.classList.add('hidden');
+    backdrop.classList.add('hidden');
 });
 
 iconPlus.addEventListener('click',()=>{

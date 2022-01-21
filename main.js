@@ -14,7 +14,8 @@ const amount = document.getElementById('amount');
 const emptyCart = document.getElementById('empty-cart');
 const cartInfo = document.getElementById('cart-info');
 const removeItem = document.getElementById('icon-delete');
-const backdrop = document.getElementById('backdrop');
+const backdrop = document.getElementById('lightbox');
+const hideBackdrop = document.getElementById('close-lightbox');
 
 
 cart.addEventListener('click',()=>{
@@ -70,4 +71,11 @@ removeItem.addEventListener('click',()=>{
     cartNumber.classList.add('hidden');
     cartInfo.classList.add('hidden');
     emptyCart.classList.remove('hidden');
+})
+
+
+// Lightbox
+
+hideBackdrop.addEventListener('click',()=>{
+    backdrop.classList.add('hidden');
 })

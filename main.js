@@ -25,7 +25,6 @@ cart.addEventListener('click',()=>{
 menu.addEventListener('click',()=>{
     navMenu.classList.remove('hidden')
     closeBtn.classList.remove('hidden');
-    backdrop.classList.remove('hidden');
 });
 
 closeBtn.addEventListener('click',()=>{

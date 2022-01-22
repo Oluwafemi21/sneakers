@@ -16,6 +16,8 @@ const cartInfo = document.getElementById('cart-info');
 const removeItem = document.getElementById('icon-delete');
 const backdrop = document.getElementById('lightbox');
 const hideBackdrop = document.getElementById('close-lightbox');
+const images = document.querySelectorAll('.light-box-image');
+
 
 
 cart.addEventListener('click',()=>{
@@ -78,3 +80,9 @@ removeItem.addEventListener('click',()=>{
 hideBackdrop.addEventListener('click',()=>{
     backdrop.classList.add('hidden');
 })
+
+images.forEach(image => {
+    image.addEventListener('click', ()=>{
+        backdrop.classList.remove('hidden');
+    })
+});

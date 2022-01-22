@@ -59,7 +59,7 @@
         }
 
         .bigBtn {
-          @apply flex items-center justify-center bg-orange py-2 px-6 gap-4 text-white cursor-pointer rounded-md text-sm hover:bg-orange/50 transition w-full
+          @apply flex items-center justify-center bg-orange py-2 px-6 gap-4 text-white cursor-pointer rounded-md text-sm lg:hover:bg-orange/50 w-full
         }
 
         .container-body{
@@ -96,8 +96,8 @@
       </div>
 
       <div class="flex items-center gap-8">
-        <div class="relative">
-          <img class="cursor-pointer" src="images/icon-cart.svg" alt="icon-cart" id='cart'>
+        <div class="relative cursor-pointer" id='cart'>
+          <img src="images/icon-cart.svg" alt="icon-cart">
 
           <span class="hidden absolute -top-1 text-center -right-2 rounded-full h-3.5 w-5 bg-orange text-white text-xs font-bold" id="cart-number">0</span>
         </div>
@@ -140,7 +140,7 @@
       <section class="relative h-[20%]" id="image-section">
 
         <!-- Slideshow buttons -->
-        <div class="absolute top-[50%] w-full flex items-center justify-between px-6 lg:hidden ">
+        <div class="absolute top-[50%] w-full flex items-center justify-between px-4 lg:hidden ">
           <button class="bg-white h-10 w-10 p-1 rounded-full flex items-center" id="previous">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -155,22 +155,22 @@
 
         <!-- Image area -->
         <div class="h-3/4 lg:mb-8 mb-2">
-          <img class="lg:rounded-xl h-full w-full" src="images/image-product-1.jpg" alt="image-1">
+          <img class="light-box-image lg:rounded-xl h-full w-full cursor-pointer" src="images/image-product-1.jpg" alt="image-1">
         </div>
 
         <!-- Image Thumbnails -->
         <div class="lg:flex gap-8 items-center hidden">
           <div class="h-18 border-2 border-orange rounded-md">
-            <img class="h-full opacity-50 cursor-pointer" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
+            <img class="h-full opacity-50 cursor-pointer light-box-image" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-2-thumbnail.jpg" alt="image-product-2-thumbnail">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-2-thumbnail.jpg" alt="image-product-2-thumbnail">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-3-thumbnail.jpg" alt="image-product-3-thumbnail">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-3-thumbnail.jpg" alt="image-product-3-thumbnail">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer" src="images/image-product-4-thumbnail.jpg" alt="image-product-4-thumbnail">
+            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-4-thumbnail.jpg" alt="image-product-4-thumbnail">
           </div>
         </div>
 
@@ -213,9 +213,14 @@
     </main>
 
     <div id="lightbox" class="fixed z-[60] top-0 left-0 right-0 w-full h-full bg-darkblue/75 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-orange cursor-pointer" id="close-lightbox" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <!-- <div class="h-32 w-32 bg-white rounded-full"></div> -->
+       <div class="max-w-screen-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 h-6 w-6 text-white hover:text-orange cursor-pointer" id="close-lightbox" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
+
+        <img src="images/image-product-1.jpg" class="h-[300px]" alt="">
+       </div>
     </div>
     <script src="main.js"></script>
 </body>

@@ -17,6 +17,7 @@ const removeItem = document.getElementById('icon-delete');
 const backdrop = document.getElementById('lightbox');
 const hideBackdrop = document.getElementById('close-lightbox');
 const images = document.querySelectorAll('.light-box-image');
+let img = document.getElementById('lightbox-image');
 
 
 
@@ -84,5 +85,6 @@ hideBackdrop.addEventListener('click',()=>{
 images.forEach(image => {
     image.addEventListener('click', ()=>{
         backdrop.classList.remove('hidden');
+        img.src = image.src
     })
 });

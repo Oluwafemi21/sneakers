@@ -17,12 +17,14 @@ const removeItem = document.getElementById('icon-delete');
 const backdrop = document.getElementById('lightbox');
 const hideBackdrop = document.getElementById('close-lightbox');
 const images = document.querySelectorAll('.light-box-image');
-let img = document.getElementById('lightbox-image');
+const img = document.getElementById('lightbox-image');
+const heroImg = document.getElementById('main-img');
+const cartImg = document.getElementById('cart-img');
 
 
 
 cart.addEventListener('click',()=>{
-    previewCard.classList.toggle('hidden');
+    previewCard.classList.remove('hidden');
 });
 
 menu.addEventListener('click',()=>{
@@ -52,6 +54,7 @@ addCart.addEventListener('click', ()=>{
     if(counter.textContent > 0 ){
         cartNumber.classList.remove('hidden');
         cartNumber.textContent = counter.textContent;
+        counter.textContent = 0;
         emptyCart.classList.add('hidden');
         cartInfo.classList.remove('hidden');
     } else{
@@ -61,7 +64,7 @@ addCart.addEventListener('click', ()=>{
     }
 
     // Update the number of items in cart modal
-    numOfItems.textContent = counter.textContent;
+    numOfItems.textContent = cartNumber.textContent;
     
     // Calculate the total amount to be paid
     let totalAmount = Number(amount.textContent) * numOfItems.textContent;
@@ -73,7 +76,15 @@ removeItem.addEventListener('click',()=>{
     cartNumber.classList.add('hidden');
     cartInfo.classList.add('hidden');
     emptyCart.classList.remove('hidden');
-})
+});
+
+// Click outside an area to close
+document.onclick = function(e){
+    if(e.target.id !== 'cart'){
+     previewCard.classList.add('hidden');
+    }
+    
+}
 
 
 // Lightbox
@@ -86,5 +97,6 @@ images.forEach(image => {
     image.addEventListener('click', ()=>{
         backdrop.classList.remove('hidden');
         img.src = image.src
+        heroImg.src = image.src
     })
 });

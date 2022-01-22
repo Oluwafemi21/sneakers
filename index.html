@@ -96,9 +96,8 @@
       </div>
 
       <div class="flex items-center gap-8">
-        <div class="relative cursor-pointer" id='cart'>
-          <img src="images/icon-cart.svg" alt="icon-cart">
-
+        <div class="relative cursor-pointer" >
+          <img class="cursor-pointer" src="images/icon-cart.svg" alt="icon-cart" id='cart'>
           <span class="hidden absolute -top-1 text-center -right-2 rounded-full h-3.5 w-5 bg-orange text-white text-xs font-bold" id="cart-number">0</span>
         </div>
 
@@ -118,7 +117,7 @@
         <!-- When Cart has an item/items in it -->
         <section class="hidden p-5 flex flex-col gap-12" id="cart-info">
           <div class="flex items-center w-full gap-4">
-            <img class="h-10 w-10 rounded-md" src="images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail">
+            <img class="h-10 w-10 rounded-md" src="images/image-product-1.jpg" alt="image-product-1" id="cart-img">
             <div class="flex items-center justify-between w-full">
               <div class="text-grayish_blue text-xs">
                 <p>Autum Limited Edition...</p>
@@ -155,7 +154,7 @@
 
         <!-- Image area -->
         <div class="h-3/4 lg:mb-8 mb-2">
-          <img class="lg:light-box-image lg:rounded-xl h-full w-full cursor-pointer" src="images/image-product-1.jpg" alt="image-1">
+          <img class="lg:light-box-image lg:rounded-xl h-full w-full cursor-pointer" src="images/image-product-1.jpg" alt="image-1" id="main-img">
         </div>
 
         <!-- Image Thumbnails -->

@@ -66,6 +66,10 @@
           @apply min-h-screen lg:w-4/5 xl:w-[67%] w-full lg:container lg:mx-auto lg:px-5 relative -z-10
         }
 
+        .active-thumbnail{
+          @apply border-2 border-orange opacity-50;
+        }
+
       </style>
 
 
@@ -139,7 +143,7 @@
       <section class="relative h-[20%]" id="image-section">
 
         <!-- Slideshow buttons -->
-        <div class="absolute top-[50%] w-full flex items-center justify-between px-4 lg:hidden ">
+        <div class="absolute top-[50%] bottom-[50%] w-full flex items-center justify-between px-4 lg:hidden ">
           <button class="bg-white h-10 w-10 p-1 rounded-full flex items-center" id="previous">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -159,17 +163,17 @@
 
         <!-- Image Thumbnails -->
         <div class="lg:flex gap-8 items-center hidden">
-          <div class="h-18 border-2 border-orange rounded-md">
-            <img class="h-full opacity-50 cursor-pointer light-box-image" src="images/image-product-1.jpg" alt="image-product-1">
+          <div class="">
+            <img class="active-thumbnail rounded-md h-full hover:opacity-50 cursor-pointer thumbnails" src="images/image-product-1.jpg" alt="image-product-1">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-2.jpg" alt="image-product-2">
+            <img class="rounded-md h-full hover:opacity-50 cursor-pointer thumbnails" src="images/image-product-2.jpg" alt="image-product-2">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-3.jpg" alt="image-product-3">
+            <img class="rounded-md h-full hover:opacity-50 cursor-pointer thumbnails" src="images/image-product-3.jpg" alt="image-product-3">
           </div>
           <div class="">
-            <img class="rounded-md h-18 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-4.jpg" alt="image-product-4">
+            <img class="rounded-md h-full hover:opacity-50 cursor-pointer thumbnails" src="images/image-product-4.jpg" alt="image-product-4">
           </div>
         </div>
 
@@ -213,7 +217,7 @@
 
 
     <!-- LightBox -->
-    <section id="lightbox" class="hidden fixed z-[60] top-0 left-0 right-0 w-full h-full bg-black/75 flex items-center justify-center">
+    <section id="lightbox" class="hidden fixed z-[60] top-0 left-0 right-0 w-full h-screen bg-black/75 flex items-center justify-center">
       
        <div class="max-w-[450px] relative">
           <svg xmlns="http://www.w3.org/2000/svg" class=" absolute right-0 -top-10 text-right h-6 w-6 text-white hover:text-orange cursor-pointer" id="close-lightbox" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -223,13 +227,13 @@
           <img src="images/image-product-1.jpg" class="h-[400px] rounded-xl" id="lightbox-image" alt="light-box-image">
 
           <!-- Slider buttons -->
-          <div class="absolute top-0 w-full flex items-center justify-between ">
-            <button class="bg-white h-10 w-10 p-1 rounded-full flex items-center hover:text-orange" id="previous">
+          <div class="absolute bottom-[55%] w-full flex items-center justify-between">
+            <button class="relative -left-5 bg-white h-10 w-10 p-1 rounded-full flex items-center hover:text-orange" id="previous">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
             </button>
-            <button class="bg-white h-10 w-10 p-1 rounded-full flex items-center hover:text-orange" id="next">
+            <button class="relative -right-5 bg-white h-10 w-10 p-1 rounded-full flex items-center hover:text-orange" id="next">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
               </svg>
@@ -238,17 +242,17 @@
 
           <!-- image thumbnails -->
           <div class="lg:flex gap-8 items-center hidden justify-center mt-8">
-            <div class="h-16 border-2 border-orange rounded-md">
-              <img class="h-full opacity-[.67] cursor-pointer light-box-image" src="images/image-product-1.jpg" alt="image-product-1">
+            <div class="">
+              <img class=" active-thumbnail h-16 rounded-md opacity-[.67] cursor-pointer light-box-image thumbnails" src="images/image-product-1.jpg" alt="image-product-1">
             </div>
             <div class="">
-              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-2.jpg" alt="image-product-2">
+              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image thumbnails" src="images/image-product-2.jpg" alt="image-product-2">
             </div>
             <div class="">
-              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-3.jpg" alt="image-product-3">
+              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image thumbnails" src="images/image-product-3.jpg" alt="image-product-3">
             </div>
             <div class="">
-              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image" src="images/image-product-4.jpg" alt="image-product-4">
+              <img class="rounded-md h-16 hover:opacity-50 cursor-pointer light-box-image thumbnails" src="images/image-product-4.jpg" alt="image-product-4">
             </div>
           </div>
        </div>

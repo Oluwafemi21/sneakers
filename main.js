@@ -17,10 +17,10 @@ const removeItem = document.getElementById('icon-delete');
 const backdrop = document.getElementById('lightbox');
 const hideBackdrop = document.getElementById('close-lightbox');
 const images = document.querySelectorAll('.light-box-image');
+const thumbBtns = document.querySelectorAll('.thumbnails');
 const img = document.getElementById('lightbox-image');
 const heroImg = document.getElementById('main-img');
 const cartImg = document.getElementById('cart-img');
-
 
 
 cart.addEventListener('click',()=>{
@@ -93,11 +93,23 @@ hideBackdrop.addEventListener('click',()=>{
     backdrop.classList.add('hidden');
 })
 
+heroImg.addEventListener('click',()=>{
+    backdrop.classList.remove('hidden');
+})
+
 images.forEach(image => {
     image.addEventListener('click', ()=>{
         backdrop.classList.remove('hidden');
         img.src = image.src
         heroImg.src = image.src
-        cartImg.src = image.src
     })
 });
+
+thumbBtns.forEach(thumb => {
+    thumb.addEventListener('click',(e)=>{
+        thumbBtns.forEach(btn => btn.classList.remove('active-thumbnail'));
+        thumb.classList.add('active-thumbnail');
+        heroImg.src = thumb.src    
+        cartImg.src = thumb.src    
+    })
+})

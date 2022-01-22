@@ -98,5 +98,6 @@ images.forEach(image => {
         backdrop.classList.remove('hidden');
         img.src = image.src
         heroImg.src = image.src
+        cartImg.src = image.src
     })
 });

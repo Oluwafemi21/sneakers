@@ -137,6 +137,6 @@ nextBtn.addEventListener('click',()=>{
         current_image_index += 1
         heroImg.src = imageGallery[current_image_index]
     } else{
-        current_image_index = 0
+        nextBtn.classList.add('hidden');
     }
 })

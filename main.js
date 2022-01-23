@@ -83,16 +83,15 @@ removeItem.addEventListener('click',()=>{
 
 // Click outside an area to close
 document.onclick = function(e){
-    if(e.target.id !== 'cart' || e.target.id !== 'close-lightbox'){
+    if(e.target.id !== 'cart'){
      previewCard.classList.add('hidden');
-     backdrop.classList.remove('hidden');
     }
 }
 
-
 // Lightbox
 
-hideBackdrop.addEventListener('click',()=>{
+hideBackdrop.addEventListener('click',(e)=>{
+    console.log(e.target);
     backdrop.classList.add('hidden');
 })
 
@@ -146,5 +145,8 @@ nextBtns.forEach(nextBtn => {
 prevBtns.forEach(prevBtn => {
     prevBtn.addEventListener('click',()=>{
         console.log('Prev Button activated');
-    })
+        current_image_index = imageGallery.length
+        
+    });
+
 });

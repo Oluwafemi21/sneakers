@@ -27,10 +27,15 @@
                 slidein: {
                      '0%': { transform: 'translateX(-100%)' },
                      '100%': { transform: 'translateX(0%)' },
+                },
+                zoom: {
+                     '0%': { transform: 'scale(0)' },
+                     '100%': { transform: 'scale(1)' },
                 }
               },
               animation:{
                 slidein: 'slidein .08s ease-in-out',
+                zoom: 'zoom .3s ease-in-out',
               }
             }
           }
@@ -51,7 +56,7 @@
         }
 
         .card{
-          @apply min-w-[96%] container w-64 h-auto lg:h-52 absolute z-20 top-20 right-0 left-0 rounded-md shadow-lg bg-white overflow-hidden mx-auto lg:min-w-0 lg:top-14 lg:left-auto lg:-right-12 lg:mx-0;
+          @apply min-w-[96%] container w-64 h-auto lg:h-52 absolute z-20 top-20 right-0 left-0 rounded-md shadow-lg bg-white overflow-hidden mx-auto lg:min-w-0 lg:top-14 lg:left-auto lg:-right-12 lg:mx-0 animate-zoom;
         }
 
         .sidenav{
@@ -59,11 +64,11 @@
         }
 
         .bigBtn {
-          @apply flex items-center justify-center bg-orange py-2 px-6 gap-4 text-white cursor-pointer rounded-md text-sm lg:hover:bg-orange/50 w-full
+          @apply flex items-center justify-center bg-orange py-2 px-6 gap-4 text-white cursor-pointer rounded-md text-sm lg:hover:bg-orange/50 w-full;
         }
 
         .container-body{
-          @apply min-h-screen lg:w-4/5 xl:w-[67%] w-full lg:container lg:mx-auto lg:px-5 relative -z-10
+          @apply min-h-screen lg:w-4/5 xl:w-[67%] w-full lg:container lg:mx-auto lg:px-5 relative -z-10;
         }
 
         .active-thumbnail{
@@ -217,7 +222,7 @@
 
 
     <!-- LightBox -->
-    <section id="lightbox" class="opacity-0 lg:opacity-100 hidden fixed z-[60] top-0 left-0 right-0 w-full h-screen bg-black/75 flex items-center justify-center">
+    <section id="lightbox" class="transition-opacity opacity-0 lg:opacity-100 hidden fixed z-[60] top-0 left-0 right-0 w-full h-screen bg-black/75 flex items-center justify-center animate-zoom">
       
        <div class="max-w-[450px] relative">
           <svg xmlns="http://www.w3.org/2000/svg" class=" absolute right-0 -top-10 text-right h-6 w-6 text-white hover:text-orange cursor-pointer" id="close-lightbox" fill="none" viewBox="0 0 24 24" stroke="currentColor">

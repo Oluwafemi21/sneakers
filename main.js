@@ -83,8 +83,9 @@ removeItem.addEventListener('click',()=>{
 
 // Click outside an area to close
 document.onclick = function(e){
-    if(e.target.id !== 'cart'){
+    if(e.target.id !== 'cart' || e.target.id !== 'close-lightbox'){
      previewCard.classList.add('hidden');
+     backdrop.classList.remove('hidden');
     }
 }
 

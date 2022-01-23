@@ -146,6 +146,7 @@ prevBtns.forEach(prevBtn => {
     prevBtn.addEventListener('click',()=>{
         console.log('Prev Button activated');
         current_image_index = imageGallery.length
+        current_image_index -= 1;
         
     });
 

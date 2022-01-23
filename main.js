@@ -123,22 +123,17 @@ let imageGallery = ['images/image-product-1.jpg','images/image-product-2.jpg','i
 
 let current_image_index = 0;
 
-prevBtn.addEventListener('click',()=>{
-    if(current_image_index < 0 ){
-        current_image_index = 0
-        prevBtn.classList.add('hidden');
+nextBtn.addEventListener('click',()=>{
+    current_image_index += 1;
+    if(current_image_index < imageGallery.length){
+        heroImg.src = imageGallery[current_image_index]
     } else{
-        current_image_index -= 1;
+        current_image_index = 0;
         heroImg.src = imageGallery[current_image_index]
     }
 });
 
-nextBtn.addEventListener('click',()=>{
-    if(current_image_index < imageGallery.length){
-        current_image_index += 1
-        heroImg.src = imageGallery[current_image_index]
-    } else{
-        current_image_index = 0
-        nextBtn.classList.add('hidden');
-    }
-})
+prevBtn.addEventListener('click',()=>{
+    current_image_index -= 1;
+    console.log(heroImg[current_image_index]);
+});

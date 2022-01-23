@@ -21,6 +21,9 @@ const thumbBtns = document.querySelectorAll('.thumbnails');
 const img = document.getElementById('lightbox-image');
 const heroImg = document.getElementById('main-img');
 const cartImg = document.getElementById('cart-img');
+const prevBtn = document.getElementById('previous');
+const nextBtn = document.getElementById('next');
+
 
 
 cart.addEventListener('click',()=>{
@@ -112,4 +115,28 @@ thumbBtns.forEach(thumb => {
         heroImg.src = thumb.src    
         cartImg.src = thumb.src    
     })
+})
+
+// Slider
+
+let imageGallery = ['images/image-product-1.jpg','images/image-product-2.jpg','images/image-product-3.jpg','images/image-product-4.jpg']
+
+let current_image_index = 0;
+
+prevBtn.addEventListener('click',()=>{
+    if(current_image_index < 0 ){
+        prevBtn.classList.add('hidden');
+    } else{
+        current_image_index -= 1;
+        heroImg.src = imageGallery[current_image_index]
+    }
+});
+
+nextBtn.addEventListener('click',()=>{
+    if(current_image_index < imageGallery.length){
+        current_image_index += 1
+        heroImg.src = imageGallery[current_image_index]
+    } else{
+        current_image_index = 0
+    }
 })

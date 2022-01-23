@@ -127,9 +127,11 @@ nextBtn.addEventListener('click',()=>{
     current_image_index += 1;
     if(current_image_index < imageGallery.length){
         heroImg.src = imageGallery[current_image_index]
+        cartImg.src = imageGallery[current_image_index]
     } else{
         current_image_index = 0;
         heroImg.src = imageGallery[current_image_index]
+        cartImg.src = imageGallery[current_image_index]
     }
 });
 

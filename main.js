@@ -90,8 +90,7 @@ document.onclick = function(e){
 
 // Lightbox
 
-hideBackdrop.addEventListener('click',(e)=>{
-    console.log(e.target);
+hideBackdrop.addEventListener('click',()=>{
     backdrop.classList.add('hidden');
 })
 
@@ -108,7 +107,7 @@ images.forEach(image => {
 });
 
 thumbBtns.forEach(thumb => {
-    thumb.addEventListener('click',(e)=>{
+    thumb.addEventListener('click',()=>{
         thumbBtns.forEach(btn => btn.classList.remove('active-thumbnail'));
         thumb.classList.add('active-thumbnail');
         heroImg.src = thumb.src; 
@@ -132,7 +131,6 @@ nextBtns.forEach(nextBtn => {
             img.src = imageGallery[current_image_index]
         } else{
             current_image_index = 0;
-            img.src = imageGallery[current_image_index]
 
             heroImg.src = imageGallery[current_image_index]
             cartImg.src = imageGallery[current_image_index]
@@ -144,19 +142,22 @@ nextBtns.forEach(nextBtn => {
 prevBtns.forEach(prevBtn => {
     current_image_index = 4;
     prevBtn.addEventListener('click',()=>{
-        console.log('Prev Button activated');
-        current_image_index -= 1;
-       if(current_image_index > -1){
-        heroImg.src = imageGallery[current_image_index]
-        cartImg.src = imageGallery[current_image_index]
-        img.src = imageGallery[current_image_index]
-       } else{
-        current_image_index = 0
-        heroImg.src = imageGallery[current_image_index]
-        cartImg.src = imageGallery[current_image_index]
-        img.src = imageGallery[current_image_index]
-       }
         
+        if(current_image_index  <=  0){
+            current_image_index = 4;
+            current_image_index -= 1;
+
+            heroImg.src = imageGallery[current_image_index]
+            cartImg.src = imageGallery[current_image_index]
+            img.src = imageGallery[current_image_index]
+            
+        } else{
+            current_image_index -= 1;
+
+            heroImg.src = imageGallery[current_image_index]
+            cartImg.src = imageGallery[current_image_index]
+            img.src = imageGallery[current_image_index]
+        }
     });
 
 });

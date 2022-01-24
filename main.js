@@ -129,7 +129,6 @@ nextBtns.forEach(nextBtn => {
         if(current_image_index < imageGallery.length){
             heroImg.src = imageGallery[current_image_index]
             cartImg.src = imageGallery[current_image_index]
-            console.log('Hey');
             img.src = imageGallery[current_image_index]
         } else{
             current_image_index = 0;
@@ -143,10 +142,20 @@ nextBtns.forEach(nextBtn => {
 })
 
 prevBtns.forEach(prevBtn => {
+    current_image_index = 4;
     prevBtn.addEventListener('click',()=>{
         console.log('Prev Button activated');
-        current_image_index = imageGallery.length
         current_image_index -= 1;
+       if(current_image_index > -1){
+        heroImg.src = imageGallery[current_image_index]
+        cartImg.src = imageGallery[current_image_index]
+        img.src = imageGallery[current_image_index]
+       } else{
+        current_image_index = 0
+        heroImg.src = imageGallery[current_image_index]
+        cartImg.src = imageGallery[current_image_index]
+        img.src = imageGallery[current_image_index]
+       }
         
     });
 

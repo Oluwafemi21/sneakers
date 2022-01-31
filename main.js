@@ -167,7 +167,18 @@ prevBtns.forEach(prevBtn => {
             cartImg.src = imageGallery[current_image_index];
             img.src = imageGallery[current_image_index];
         }
+        
+        thumbBtns.forEach(thumb => {
+            if(thumb.src == heroImg.src){
+                thumb.classList.add('active-thumbnail');
+            } else{
+                thumb.classList.remove('active-thumbnail');
+            }
+        })
     });
+
+    
+
 
     
 });

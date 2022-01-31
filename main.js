@@ -136,6 +136,15 @@ nextBtns.forEach(nextBtn => {
             cartImg.src = imageGallery[current_image_index]
             img.src = imageGallery[current_image_index]
         }
+
+        thumbBtns.forEach(thumb => {
+            if(thumb.src == heroImg.src){
+                thumb.classList.add('active-thumbnail');
+            } else{
+                thumb.classList.remove('active-thumbnail');
+            }
+        })
+        
     });
 })
 
@@ -147,17 +156,18 @@ prevBtns.forEach(prevBtn => {
             current_image_index = 4;
             current_image_index -= 1;
 
-            heroImg.src = imageGallery[current_image_index]
-            cartImg.src = imageGallery[current_image_index]
-            img.src = imageGallery[current_image_index]
+            heroImg.src = imageGallery[current_image_index];
+            cartImg.src = imageGallery[current_image_index];
+            img.src = imageGallery[current_image_index];
             
         } else{
             current_image_index -= 1;
 
-            heroImg.src = imageGallery[current_image_index]
-            cartImg.src = imageGallery[current_image_index]
-            img.src = imageGallery[current_image_index]
+            heroImg.src = imageGallery[current_image_index];
+            cartImg.src = imageGallery[current_image_index];
+            img.src = imageGallery[current_image_index];
         }
     });
 
+    
 });
